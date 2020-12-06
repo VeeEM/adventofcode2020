@@ -1,4 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
 module Day6 where
 
 import Data.List
