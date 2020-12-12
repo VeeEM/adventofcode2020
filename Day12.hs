@@ -70,8 +70,12 @@ moveToWaypoint times ship = ship { position = (ox + times * wpx, oy + times * wp
     (ox, oy) = position ship
     (wpx, wpy) = waypoint ship
 
-
 initialShip = Ship 0 (0,0) (10, -1)
+
+printResult :: Ship -> IO ()
+printResult ship = print $ abs x + abs y
+  where
+    (x, y) = position ship
 
 main :: IO ()
 main = do
@@ -80,7 +84,5 @@ main = do
   let instructions2 = map parseInstruction2 $ lines str
   let firstShip = foldl' (\ship f -> f ship) initialShip instructions
   let secondShip = foldl' (\ship f -> f ship) initialShip instructions2
-  let (x, y) = position firstShip
-  let (x2, y2) = position secondShip
-  print $ abs x + abs y
-  print $ abs x2 + abs y2
+  printResult firstShip
+  printResult secondShip
