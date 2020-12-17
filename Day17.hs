@@ -50,5 +50,4 @@ main :: IO ()
 main = do
   str <- readFile "input17.txt"
   let charMap = inputToMap str
-  let adjacentBoxes = lookupAdjacents (0,0,0) charMap
   print $ length $ M.filter (== '#') $ updateN 6 charMap
